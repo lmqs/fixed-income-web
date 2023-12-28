@@ -1,0 +1,20 @@
+
+.inputContainer {
+  position: relative;
+  width: 300px;
+}
+
+.inputField {
+  width: 100%;
+  padding-left: 30px;
+  height: 36px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}

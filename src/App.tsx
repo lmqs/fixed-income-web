@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react'
+import { SearchInput, CompanyInfo } from './pages'
 
-function App() {
+const App: React.FC = () => {
+  const [company, setCompany] = useState<any>(null);
+
+  const fetchCompany = async (term: string) => {
+    try {
+      const response = await fetch(`http://localhost:3005/api/institution?name=${term}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch company');
+      }
+      const data = await response.json()
+      setCompany(data)
+    } catch (error) {
+      console.error('Error fetching company:', error);
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="page-layout">
+      <div className="top-bar">
+        <div className="search-input-container">
+          <SearchInput onSearch={fetchCompany} />
+        </div>
+      </div>
+      <div className="content">
+        <div className="side-panel">
+          {company && <CompanyInfo company={company[0].institution} />}
+        </div>
+        <div className="main-content"></div>
+      </div>
     </div>
   );
 }
