@@ -1,0 +1,21 @@
+
+.companyCard {
+  width: 200px;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.cardIcon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.cardValue {
+  font-size: 18px;
+  margin: 0;
+}
+
+
