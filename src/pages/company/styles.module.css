@@ -2,6 +2,8 @@
 .inputContainer {
   position: relative;
   width: 300px;
+  background-color: red;
+
 }
 
 .inputField {

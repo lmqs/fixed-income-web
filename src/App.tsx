@@ -1,35 +1,36 @@
 import './App.css';
 import React, { useState } from 'react'
-import { SearchInput, CompanyInfo } from './pages'
+import { SearchInput, CompanyInfo, CompanyMainPage } from './pages'
+import { CompaniesProps } from './models'
 
 const App: React.FC = () => {
-  const [company, setCompany] = useState<any>(null);
+  const [companies, setCompanies] = useState<CompaniesProps>([])
 
   const fetchCompany = async (term: string) => {
     try {
       const response = await fetch(`http://localhost:3005/api/institution?name=${term}`);
       if (!response.ok) {
-        throw new Error('Failed to fetch company');
+        throw new Error('Failed to fetch companies');
       }
       const data = await response.json()
-      setCompany(data)
+      setCompanies(data)
     } catch (error) {
-      console.error('Error fetching company:', error);
+      console.error('Error fetching companies:', error);
     }
   }
 
   return (
     <div className="page-layout">
       <div className="top-bar">
-        <div className="search-input-container">
-          <SearchInput onSearch={fetchCompany} />
-        </div>
+        <SearchInput onSearch={fetchCompany} />
       </div>
       <div className="content">
         <div className="side-panel">
-          {company && <CompanyInfo company={company[0].institution} />}
+          {companies.length > 0 && <CompanyInfo institution={companies[0].institution} />}
         </div>
-        <div className="main-content"></div>
+        <div className="main-content">
+          {companies.length > 0 && <CompanyMainPage infos={companies[0].info} />}
+        </div>
       </div>
     </div>
   );

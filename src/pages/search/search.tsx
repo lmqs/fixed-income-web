@@ -18,7 +18,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
         <img src={SearchIcon} alt="Search" className={styles.icon} />
       </span>
       <input type="text" className={styles.inputField}  value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Digite o nome da instituição financeira"/>
-      <button onClick={handleSearch}>Search</button>
+      <button className={styles.buttonSearch} onClick={handleSearch}>Pesquisar</button>
     </div>
   );
 }

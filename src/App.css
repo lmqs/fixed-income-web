@@ -1,4 +1,3 @@
-/* Estilos básicos */
 body, html {
   margin: 0;
   padding: 0;
@@ -12,18 +11,8 @@ body, html {
 }
 
 .top-bar {
-  background-color: #f0f0f0;
-  padding: 10px;
-}
-.search-input-container {
+  padding: 5px;
   padding-left: 290px;
-}
-
-.search-input {
-  width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
 }
 
 .content {
@@ -32,19 +21,19 @@ body, html {
 }
 
 .side-panel {
+  flex: 0 0 auto;
   width: 250px;
   background-color: #e0e0e0;
   padding: 20px;
-}
-
-.empresa-info img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .main-content {
   flex: 1;
-  padding: 20px;
+  padding-left: 250px;
   background-color: #fff;
+  overflow-y: auto;
 }

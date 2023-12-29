@@ -1,20 +1,28 @@
 
 .inputContainer {
-  position: relative;
-  width: 300px;
+  display: flex;
 }
 
 .inputField {
-  width: 100%;
+  flex: 90%;
   padding-left: 30px;
   height: 36px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+.buttonSearch {
+  flex: 10%;
+}
 
 .searchIcon {
+  width: 5%;
   position: absolute;
   left: 5px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.inputContainer {
+  position: relative;
+  width: 95%;
 }
