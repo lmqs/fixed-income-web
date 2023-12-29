@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './main.module.css';
 import { CompanyCard } from './card';
 import { InstitutionInfo } from '../../models';
+import { CompanyCardIndices } from './card-indices';
 
 export const CompanyMainPage: React.FC<{ infos: InstitutionInfo[] }> = ({ infos }) => {
   const companyData = [
@@ -27,6 +28,8 @@ export const CompanyMainPage: React.FC<{ infos: InstitutionInfo[] }> = ({ infos 
 
   return (
     <div className={styles.companyMainPage}>
+      <CompanyCardIndices value={infos[0].basileia} title={'Índice de Basileia'} type={'b'}/>
+      <CompanyCardIndices value={infos[0].imobilizacao} title={'Índice de Imobilização'} type={'i'}/>
       <div className={`${styles.cardContainer} clearfix`}>
         {companyData.map((company, index) => (
           <CompanyCard key={index} title={company.title} icon={company.icon} value={company.value} />

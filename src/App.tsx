@@ -26,6 +26,7 @@ const App: React.FC = () => {
       </div>
       <div className="content">
         <div className="side-panel">
+          <p>LOGO SITE</p>
           {companies.length > 0 && <CompanyInfo institution={companies[0].institution} />}
         </div>
         <div className="main-content">
