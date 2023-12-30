@@ -8,7 +8,7 @@ const App: React.FC = () => {
 
   const fetchCompany = async (term: string) => {
     try {
-      const response = await fetch(`http://localhost:3005/api/institution?name=${term}`);
+      const response = await fetch(`http://localhost:3005/api/institution?name=${encodeURIComponent(term)}`);
       if (!response.ok) {
         throw new Error('Failed to fetch companies');
       }
