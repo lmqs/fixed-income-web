@@ -1,21 +1,57 @@
 
 .companyCard {
-  width: 200px;
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  height: 120px;
+  padding: 15px;
   margin: 10px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  text-align: center;
+  border: 0px solid #ccc;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.cardIcon {
-  width: 50px;
-  height: 50px;
+.top {
+  display: flex;
+  align-items: center;
   margin-bottom: 10px;
 }
+.cardIcon {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
 
+.cardTitle {
+  font-size: 14px;
+  color: #A8A9B0;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.divValue {
+  align-items: center;
+}
+.percent {
+  display: flex;
+  align-items: center;
+}
+.cardTrend {
+  width: 30px;
+  height: 30px;
+}
 .cardValue {
-  font-size: 18px;
-  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cardPercent {
+  font-size: 10px;
+  font-weight: bold;
 }
 
 
