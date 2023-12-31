@@ -33,7 +33,18 @@ export type InstitutionInfo = {
   serviceStations: number;
 }
 
+export type Data = {
+  agencies: number[]
+  period: string[]
+  serviceStations:  number[]
+}
+
 export type CompaniesProps = {
   institution: Institution;
-  info: InstitutionInfo[]
+  info: InstitutionInfo[];
+  data: {
+    agencies: number[]
+    period: string[]
+    serviceStations:  number[]
+  }
 }[]

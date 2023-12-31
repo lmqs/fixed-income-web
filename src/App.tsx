@@ -30,7 +30,7 @@ const App: React.FC = () => {
           {companies.length > 0 && <CompanyInfo institution={companies[0].institution} />}
         </div>
         <div className="main-content">
-          {companies.length > 0 && <CompanyMainPage infos={companies[0].info} />}
+          {companies.length > 0 && <CompanyMainPage infos={companies[0].info} data={companies[0].data} />}
         </div>
       </div>
     </div>

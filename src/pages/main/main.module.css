@@ -1,8 +1,21 @@
 
 .companyMainPage {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 10px;
+}
+
+.companyCards {
+  display: flex;
+  flex-direction: row;
+}
+
+.companyCharts {
+  display: flex;
+  flex-direction: row;
+  height: 400px;
+  width: 500px;
 }
 
 .companyCardIndices {

@@ -1,13 +1,15 @@
 import React from 'react';
 import styles from './main.module.css';
 import { CompanyCard } from './card';
-import { InstitutionInfo } from '../../models';
+import { Data, InstitutionInfo } from '../../models';
 import { CompanyCardIndices } from './card-indices';
 import moneyBagIcon from './../../images/money-bag.svg'
 import moneySend from './../../images/money-send.svg'
 import moneyIntegral from './../../images/money-integral.svg'
+import { ChartAgenciesStations } from './charts';
 
-export const CompanyMainPage: React.FC<{ infos: InstitutionInfo[] }> = ({ infos }) => {
+export const CompanyMainPage: React.FC<{ infos: InstitutionInfo[], data: Data }> = ({ infos, data }) => {
+
   const companyData = [
     { valuePercent:-1.10, icon: moneyBagIcon, title: 'Total do ativo', value: infos[0].totalAssets  },
     { valuePercent:0.10, icon: moneyIntegral, title: 'Lucro líquido', value: infos[0].netProfit },
@@ -18,20 +20,24 @@ export const CompanyMainPage: React.FC<{ infos: InstitutionInfo[] }> = ({ infos 
     { valuePercent:-3.10, icon: moneySend, title: 'Patrimônio de Referência para Comparação com o RWA', value: infos[0].patrimonyRWA },
     { valuePercent:-3.10, icon: moneySend, title: 'Número de agências', value: infos[0].agencies },
     { valuePercent:-3.10, icon: moneySend, title: 'Número de postos de atendimento', value: infos[0].serviceStations }
-
   ];
 
   return (
     <div className={styles.companyMainPage}>
-      <div className={styles.companyCardIndices}>
-        <CompanyCardIndices value={infos[0].basileia} title={'Índice de Basileia'} type={'b'}/>
-        <CompanyCardIndices value={infos[0].imobilizacao} title={'Índice de Imobilização'} type={'i'}/>
-      </div>
+      <div className={styles.companyCards}>
+        <div className={styles.companyCardIndices}>
+          <CompanyCardIndices value={infos[0].basileia} title={'Índice de Basileia'} type={'b'}/>
+          <CompanyCardIndices value={infos[0].imobilizacao} title={'Índice de Imobilização'} type={'i'}/>
+        </div>
 
-      <div className={`${styles.cardContainer} clearfix`}>
-        {companyData.map((company, index) => (
-          <CompanyCard key={index} valuePercent={company.valuePercent} title={company.title} icon={company.icon} value={company.value} />
-        ))}
+        <div className={`${styles.cardContainer} clearfix`}>
+          {companyData.map((company, index) => (
+            <CompanyCard key={index} valuePercent={company.valuePercent} title={company.title} icon={company.icon} value={company.value} />
+          ))}
+        </div>
+      </div>
+      <div className={styles.companyCharts}>
+        <ChartAgenciesStations agencies={data.agencies} serviceStations={data.serviceStations} period={data.period}/>
       </div>
     </div>
   );
