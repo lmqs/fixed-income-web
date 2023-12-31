@@ -7,6 +7,7 @@ import moneyBagIcon from './../../images/money-bag.svg'
 import moneySend from './../../images/money-send.svg'
 import moneyIntegral from './../../images/money-integral.svg'
 import { ChartAgenciesStations } from './charts';
+import { ChartIndices } from './charts/indices';
 
 export const CompanyMainPage: React.FC<{ infos: InstitutionInfo[], data: Data }> = ({ infos, data }) => {
 
@@ -38,6 +39,7 @@ export const CompanyMainPage: React.FC<{ infos: InstitutionInfo[], data: Data }>
       </div>
       <div className={styles.companyCharts}>
         <ChartAgenciesStations agencies={data.agencies} serviceStations={data.serviceStations} period={data.period}/>
+        <ChartIndices basileia={data.basileia} imobilizacao={data.imobilizacao} period={data.period}/>
       </div>
     </div>
   );

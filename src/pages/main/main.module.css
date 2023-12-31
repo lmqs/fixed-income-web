@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: row;
   height: 400px;
-  width: 500px;
+  width: 100%;
 }
 
 .companyCardIndices {

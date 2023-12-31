@@ -34,7 +34,7 @@ export const options = {
   plugins: {
     title: {
       display: true,
-      text: 'Agências e pontos de atendimentos',
+      text: 'Basileia e Imobilização',
     },
   },
   scales: {
@@ -44,24 +44,23 @@ export const options = {
       position: 'left' as const,
     }
   },
-}
+};
 
-type ChartAgenciesStationsProps = Data
-export const ChartAgenciesStations: React.FC<ChartAgenciesStationsProps> = ({ serviceStations, agencies, period }) => {
-  console.log(agencies)
+type ChartIndicesProps = Data
+export const ChartIndices: React.FC<ChartIndicesProps> = ({ basileia, imobilizacao, period }) => {
   const data = {
     labels: period,
     datasets: [
       {
-        label: 'Número de Agências',
-        data: agencies!.map((item)=> {return parseInt(item.toString())}),
+        label: 'Índice de Basileia',
+        data: basileia!,
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
         fill: true
       },
       {
-        label: 'Número de postos de atendimento',
-        data: serviceStations!.map((item)=> {return parseInt(item.toString())}),
+        label: 'Índice de Imobilização',
+        data: imobilizacao!,
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
