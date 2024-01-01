@@ -24,7 +24,7 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
+const options = {
   responsive: true,
   interaction: {
     mode: 'index' as const,

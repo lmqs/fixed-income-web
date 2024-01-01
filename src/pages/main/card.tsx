@@ -5,12 +5,12 @@ import trendUp from './../../images/arrow-trend-up.svg'
 interface CompanyCardProps {
   icon: string;
   title: string;
-  value: number;
+  value?: number;
+  valueInt?: string;
   valuePercent: number;
 }
 
-export const CompanyCard: React.FC<CompanyCardProps> = ({ icon, title, value, valuePercent }) => {
-
+export const CompanyCard: React.FC<CompanyCardProps> = ({ icon, title, value, valueInt, valuePercent }) => {
   const formatter = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
@@ -26,11 +26,11 @@ export const CompanyCard: React.FC<CompanyCardProps> = ({ icon, title, value, va
       </div>
       <div className={styles.content}>
         <div className={styles.divValue}>
-          <p className={styles.cardValue}>{formatter.format(value)}</p>
+          <p className={styles.cardValue}>{value? formatter.format(value) : valueInt}</p>
         </div>
         <div className={styles.percent}>
           <img src={trend} alt="Icon" className={styles.cardTrend} />
-          <p className={styles.cardPercent} style={{ color: textColor }}>{valuePercent}%</p>
+          <p className={styles.cardPercent} style={{ color: textColor }}>{valuePercent ?? 0}%</p>
         </div>
 
       </div>

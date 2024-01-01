@@ -41,8 +41,23 @@ export type Data = {
   imobilizacao?: number[]
 }
 
+export type Percent = {
+  netProfitPercent: number
+  netWorthPercent: number
+  totalAssetsPercent: number
+  basileiaPercent: number
+  imobilizacaoPercent: number
+  agenciesPercent: number
+  serviceStationsPercent: number
+  classifiedCreditPortfolioPercent: number
+  pickupsPercent: number
+  patrimonyRWAPercent: number
+  currentLiabilitiesPercent: number
+}
+
 export type CompaniesProps = {
   institution: Institution;
   info: InstitutionInfo[];
-  data: Data
+  data: Data,
+  dataPercents: Percent
 }[]

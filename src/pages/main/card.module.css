@@ -2,6 +2,7 @@
 .companyCard {
   display: flex;
   flex-direction: column;
+  justify-content: end;
   width: 180px;
   height: 120px;
   padding: 15px;
