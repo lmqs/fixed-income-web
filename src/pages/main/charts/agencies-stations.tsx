@@ -46,9 +46,12 @@ const options = {
   },
 }
 
-type ChartAgenciesStationsProps = Data
+type ChartAgenciesStationsProps = {
+  agencies: number[]
+  period: string[]
+  serviceStations:  number[]
+}
 export const ChartAgenciesStations: React.FC<ChartAgenciesStationsProps> = ({ serviceStations, agencies, period }) => {
-  console.log(agencies)
   const data = {
     labels: period,
     datasets: [

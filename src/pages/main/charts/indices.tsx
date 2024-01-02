@@ -46,7 +46,11 @@ const options = {
   },
 };
 
-type ChartIndicesProps = Data
+type ChartIndicesProps = {
+  basileia: number[]
+  imobilizacao: number[]
+  period: string[]
+}
 export const ChartIndices: React.FC<ChartIndicesProps> = ({ basileia, imobilizacao, period }) => {
   const data = {
     labels: period,

@@ -34,11 +34,17 @@ export type InstitutionInfo = {
 }
 
 export type Data = {
-  agencies?: number[]
-  period?: string[]
-  serviceStations?:  number[]
-  basileia?:  number[]
-  imobilizacao?: number[]
+  agencies: number[]
+  period: string[]
+  serviceStations:  number[]
+  basileia:  number[]
+  imobilizacao: number[]
+  netProfit:  number[]
+  netWorth:  number[]
+  totalAssets:  number[]
+  pickups: number[]
+  currentLiabilities: number[]
+  patrimonyRWA: number[]
 }
 
 export type Percent = {
