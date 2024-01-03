@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './main.module.css';
 import { CompanyCard } from './cards/card';
-import { Data, InstitutionInfo, Percent } from '../../models';
+import { Data, Percent } from '../../models';
 import { CompanyCardIndices } from './cards/card-indices';
 import { ChartAgenciesStations, ChartIndices } from './charts';
 import { Tooltip } from '../../components/tooltip';
@@ -11,12 +11,10 @@ import moneyIntegral from './../../images/money-integral.svg'
 import moneyBag2 from './../../images/money-bag2.svg'
 import moneyTgrant from './../../images/money-tgrant.svg'
 
-export const CompanyMainPage: React.FC<{ infos: InstitutionInfo[], data: Data, dataPercents: Percent }> = ({ infos, data, dataPercents }) => {
+export const CompanyMainPage: React.FC<{ data: Data, dataPercents: Percent }> = ({ data, dataPercents }) => {
   const [filterValue, setFilterValue] = useState('')
   const [filterOptions, setFilterOptions] = useState<string[]>([])
   const [indexArray, setIndexArray] = useState(0)
-  console.log(indexArray)
-  console.log(data.period.length-1)
 
   useEffect(() => {
     setIndexArray(data.period.length - 1)
@@ -39,10 +37,10 @@ export const CompanyMainPage: React.FC<{ infos: InstitutionInfo[], data: Data, d
     return reversedOptions.reverse()
   }
   const companyData = [
-    { valuePercent: dataPercents.totalAssetsPercent, icon: moneyBag2, title: 'Total do ativo', value: data.totalAssets[indexArray]},
-    { valuePercent: dataPercents.netProfitPercent, icon: moneyIntegral, title: 'Lucro líquido', value: data.netProfit[indexArray]},
-    { valuePercent: dataPercents.netWorthPercent, icon: moneySend, title: 'Patrimônio líquido', value: data.netWorth[indexArray]},
-    { valuePercent: dataPercents.pickupsPercent, icon: moneyTgrant, title: 'Captações', value: data.pickups[indexArray]},
+    { valuePercent: dataPercents.totalAssetsPercent[indexArray-1], icon: moneyBag2, title: 'Total do ativo', value: data.totalAssets[indexArray]},
+    { valuePercent: dataPercents.netProfitPercent[indexArray-1], icon: moneyIntegral, title: 'Lucro líquido', value: data.netProfit[indexArray]},
+    { valuePercent: dataPercents.netWorthPercent[indexArray-1], icon: moneySend, title: 'Patrimônio líquido', value: data.netWorth[indexArray]},
+    { valuePercent: dataPercents.pickupsPercent[indexArray-1], icon: moneyTgrant, title: 'Captações', value: data.pickups[indexArray]},
   ]
 
   return (

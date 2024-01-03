@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './card-filter.module.css';
 
 interface FilterProps {
   onFilterChange: (selectedValue: string) => void
@@ -12,8 +13,8 @@ export const Filter: React.FC<FilterProps> = ({ onFilterChange, filterOptions  }
   }
 
   return (
-    <div>
-      <select onChange={handleSelectionChange}>
+    <div className={styles.filterContainer}>
+      <select className={styles.select} onChange={handleSelectionChange}>
         {filterOptions?.map((option, index) => (
           <option key={index} value={option}>
             {option}

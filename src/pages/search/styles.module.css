@@ -1,28 +1,28 @@
-
-.inputContainer {
-  display: flex;
-}
-
 .inputField {
   flex: 90%;
   padding-left: 30px;
   height: 36px;
   border: 1px solid #ccc;
   border-radius: 5px;
+
 }
 .buttonSearch {
   flex: 10%;
 }
 
 .searchIcon {
-  width: 5%;
+  height: 100%;
   position: absolute;
+  padding-bottom: 10px;
   left: 5px;
   top: 50%;
-  transform: translateY(-50%);
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-10%);
 }
 
 .inputContainer {
+  display: flex;
   position: relative;
-  width: 95%;
+  width: 100%;
 }

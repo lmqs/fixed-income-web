@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './card.module.css';
 import trendDown from './../../../images/arrow-trend-down.svg'
 import trendUp from './../../../images/arrow-trend-up.svg'
+import line from './../../../images/line-xl.svg'
 interface CompanyCardProps {
   icon: string;
   title: string;
@@ -16,8 +17,20 @@ export const CompanyCard: React.FC<CompanyCardProps> = ({ icon, title, value, le
     style: 'currency',
     currency: 'BRL'
   })
-  const textColor = valuePercent > 0 ? 'green' : 'red';
-  const trend = valuePercent > 0 ? trendUp : trendDown;
+  const colorMap: { [key: string]: string } = {
+    '0': '#d5c515',
+    '-1': 'red',
+    '1': 'green'
+  }
+
+  const iconMap: { [key: string]: string } = {
+    '0': line,
+    '-1': trendDown,
+    '1': trendUp
+  }
+
+  let textColor = colorMap[Math.sign(valuePercent).toString()];
+  let trend = iconMap[Math.sign(valuePercent).toString()];
 
   return (
     <div className={styles.companyCard}>
